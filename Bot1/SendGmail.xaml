@@ -2,6 +2,7 @@
   <x:Members>
     <x:Property Name="recipientEmails" Type="InArgument(s:String[])" />
     <x:Property Name="dataString" Type="InArgument(x:String)" />
+    <x:Property Name="Config" Type="InArgument(scg:Dictionary(x:String, x:String))" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -100,7 +101,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendGmail" sap:VirtualizedContainerService.HintSize="1012,1665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendGmail" sap:VirtualizedContainerService.HintSize="716,1665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -132,7 +133,7 @@
                       <OutArgument x:TypeArguments="s:String[]">[recipientEmails]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="s:String[]">[{"zeerx7@gmail.com,Leader", "pausi347@gmail.com,HC Team"}]</InArgument>
+                      <InArgument x:TypeArguments="s:String[]">[Config("email_Receipt").ToString().Split(";")]</InArgument>
                     </Assign.Value>
                   </Assign>
                   <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="502,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
@@ -165,7 +166,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <umab:SendMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromFile="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Gmail]" Body="[dataString.Replace(&quot;__DEAR__&quot;, Split(currentText, &quot;,&quot;)(1))]" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,391" sap2010:WorkflowViewState.IdRef="SendMailX_2" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="New Employe Boarding Annoucement September 2023" To="[Split(currentText, &quot;,&quot;)(0)]" UseDocumentAsBody="False">
+                          <umab:SendMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromFile="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Gmail]" Body="[dataString.Replace(&quot;__DEAR__&quot;, Split(currentText, &quot;,&quot;)(1))]" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,391" sap2010:WorkflowViewState.IdRef="SendMailX_2" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="[Config(&quot;Subject&quot;).ToString()]" To="[Split(currentText, &quot;,&quot;)(0)]" UseDocumentAsBody="False">
                             <umab:SendMailX.Files>
                               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                             </umab:SendMailX.Files>
