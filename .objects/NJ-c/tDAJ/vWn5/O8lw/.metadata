@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Check App State 'app.starconnect.idhome…'",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "O8lwOY71c0WkC9OrfwwVzw",
+  "Reference": "xO0ba0ydF0yRyO9IJByPfg/O8lwOY71c0WkC9OrfwwVzw",
+  "ParentRef": "xO0ba0ydF0yRyO9IJByPfg/vWn5dLhlakijk35ST1tFqg",
+  "Created": "2024-10-04T20:53:04.1025111Z",
+  "Updated": "2024-10-04T20:53:04.1025111Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.11.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

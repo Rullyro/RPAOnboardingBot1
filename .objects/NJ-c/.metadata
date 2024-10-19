@@ -1,0 +1,12 @@
+﻿{
+  "Name": "Chrome StarConnect",
+  "Type": "App",
+  "Id": "NJ-cTWRGskS6SVVoPT_cbg",
+  "Reference": "xO0ba0ydF0yRyO9IJByPfg/NJ-cTWRGskS6SVVoPT_cbg",
+  "Created": "2024-10-04T20:41:42.504638Z",
+  "Updated": "2024-10-04T20:41:42.504638Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.11.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

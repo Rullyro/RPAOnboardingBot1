@@ -1,0 +1,16 @@
+﻿{
+  "Name": "Chrome StarConnect(1)",
+  "Type": "Screen",
+  "Id": "Huu5I8Hg_E-IMFcY2rx5UQ",
+  "Reference": "xO0ba0ydF0yRyO9IJByPfg/Huu5I8Hg_E-IMFcY2rx5UQ",
+  "ParentRef": "xO0ba0ydF0yRyO9IJByPfg/tDAJvibAH0CZXtAGs9A-Dw",
+  "Created": "2024-10-09T00:45:21.7126087Z",
+  "Updated": "2024-10-09T00:49:00.7190299Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.11.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=24.11.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

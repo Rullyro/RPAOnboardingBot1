@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="NIFdomHh6UKrxY1I76CoKQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="https://app.starconnect.id/login" CVScreenId="57ea5f40-6ca8-4558-93b5-83d252a26d26" CvTextArea="960, 396, 144, 12" CvType="AnyWordGroup" DesignTimeRectangle="825, 394, 415, 19" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='H5' type='' class='text-danger' /&gt;" Guid="1be5a84a-afe6-471f-adfe-7f3149c3f0cd" ScopeSelectorArgument="&lt;html app='chrome.exe' title='StarConnect' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="698d765cb81ababde9773d1fd197b629.png" xmlns="">0p4ZFTyJcQkCM5u3mRrWLXg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

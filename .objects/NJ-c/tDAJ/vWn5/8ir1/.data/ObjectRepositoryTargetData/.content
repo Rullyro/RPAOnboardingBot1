@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="gMqLqdvQn0ewcXq8bW1gsA" Reference="xO0ba0ydF0yRyO9IJByPfg/8ir1ysLC10awAW9iYWTAcA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="https://app.starconnect.id/login" CVScreenId="3196e12a-ec2a-4db8-861a-8f4ca69dd550" CvTextArea="960, 396, 144, 12" CvTextArgument="*Invalid user credentials" CvType="Text" DesignTimeRectangle="825, 394, 415, 19" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='H5' type='' class='text-danger' aaname=' *Invalid user credentials ' check:innerText='*Invalid user credentials' /&gt;" Guid="a2bf5014-f6af-4b13-b7a6-1b9ce049bfb1" ScopeSelectorArgument="&lt;html app='chrome.exe' title='StarConnect' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="e3a0a36f-27cd-4386-9942-807093e5220b" CvTextArea="1258, 128, 74, 15" CvTextArgument="Diana Pin" CvType="Text" DesignTimeRectangle="1258, 125, 74, 22" ElementType="Text" FuzzySelectorArgument="&lt;webctrl class='employee-name' parentid='navbarSupportedContent' tag='SPAN' type='' aaname='Diana Pin' check:innerText='Diana Pin' /&gt;" Guid="5d484230-fbf9-4934-91c7-ee58078d3614" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="06d02dce320c95a6a677b9880bfd6775.png" xmlns="">0pHjUMpBzCEGpWaLHTdA0ug</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>
