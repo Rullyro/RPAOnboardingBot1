@@ -108,9 +108,11 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable4</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable3</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PrepareHtmlEmailContent" sap:VirtualizedContainerService.HintSize="1012,1933" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PrepareHtmlEmailContent" sap:VirtualizedContainerService.HintSize="696,1933" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -178,7 +180,7 @@
         "&lt;tr&gt;&lt;td&gt;Join Date&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Join Date").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
         "&lt;tr&gt;&lt;td&gt;Boarding Date&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Boarding Date").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
 		 "&lt;tr&gt;&lt;td&gt;Email&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Candidate Email").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
-		 "&lt;tr&gt;&lt;td&gt;Contact Number&lt;/td&gt;" + _
+		 "&lt;tr&gt;&lt;td&gt;Contact Number&lt;/td&gt;" + CurrentRow.Item("Contact Number").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
         "&lt;tr&gt;&lt;td&gt;Hired By&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Company").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
 		"&lt;tr&gt;&lt;td&gt;Status&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Employment Status").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
 		"&lt;tr&gt;&lt;td&gt;Contract Based&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Contract Based").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
