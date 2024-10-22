@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="MainBot1" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="MainBot1_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=Studio.Generated.TypedDataTable2" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugam="clr-namespace:UiPath.GSuite.Activities.Models;assembly=UiPath.GSuite.Activities" xmlns:ugsm="clr-namespace:UiPath.GSuite.Sheets.Models;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="MainBot1" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="MainBot1_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=Studio.Generated.TypedDataTable5" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugam="clr-namespace:UiPath.GSuite.Activities.Models;assembly=UiPath.GSuite.Activities" xmlns:ugsm="clr-namespace:UiPath.GSuite.Sheets.Models;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -102,9 +102,15 @@
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable1</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable5</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable5</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable6</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable4</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable3</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MainBot1" sap:VirtualizedContainerService.HintSize="696,1322" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="MainBot1" sap:VirtualizedContainerService.HintSize="696,1118" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd1:DataTable" Name="sheetData" />
       <Variable x:TypeArguments="x:String" Name="dataString" />
@@ -118,7 +124,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uga:ReadRangeConnections x:TypeArguments="sd:DataTable2" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" RangeInformation="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Offering Letter Report (Dummy)" BrowserItemId="165orIVd662-v-6BYnt8sJLENrY0tvxh3NYk63mj_Tnk" ConnectionId="41689888-fce2-4896-8592-efaca4ab1e60" DisplayName="Read Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="416,288" sap2010:WorkflowViewState.IdRef="ReadRangeConnections`1_1" ItemSelectionMode="Browse" Range="Sheet1" ReadAs="Values" Result="[sheetData]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False">
+    <uga:ReadRangeConnections x:TypeArguments="sd:DataTable5" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" RangeInformation="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Offering Letter Report (Dummy)" BrowserItemId="1TXQXnoKLWosRejhigYhnI4tbDsh6HUEAwmSfJH664as" ConnectionId="41689888-fce2-4896-8592-efaca4ab1e60" DisplayName="Read Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="416,288" sap2010:WorkflowViewState.IdRef="ReadRangeConnections`1_1" ItemSelectionMode="Browse" Range="Sheet1" ReadAs="Values" Result="[sheetData]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False">
       <uga:ReadRangeConnections.ColumnNames>
         <x:Array Type="x:String">
           <x:String>No.</x:String>
@@ -129,6 +135,7 @@
           <x:String>Candidate Name</x:String>
           <x:String>Position</x:String>
           <x:String>Role</x:String>
+          <x:String>Contact Number</x:String>
           <x:String>Employment Status</x:String>
           <x:String>Contract Based</x:String>
           <x:String>Candidate Email</x:String>
@@ -149,6 +156,7 @@
           <x:String>User Project</x:String>
           <x:String>Status Robot Offering</x:String>
           <x:String>Status Robot Boarding</x:String>
+          <x:String>Status Robot Email</x:String>
         </x:Array>
       </uga:ReadRangeConnections.ColumnNames>
       <uga:ReadRangeConnections.FileIdBackup>
@@ -165,7 +173,7 @@
         </usau:BackupSlot>
       </uga:ReadRangeConnections.FileIdBackup>
       <uga:ReadRangeConnections.Item>
-        <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID0}" ConnectionDescriptor="{x:Null}" Existing="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" BrowserId="165orIVd662-v-6BYnt8sJLENrY0tvxh3NYk63mj_Tnk" ConnectionKey="b7369a67-d869-43b7-93c8-c025c85f71b0" FriendlyName="Offering Letter Report (Dummy)" FullPathHint="My Drive/uipath/Offering Letter Report (Dummy)" InputMode="Browse" />
+        <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID0}" ConnectionDescriptor="{x:Null}" Existing="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" BrowserId="1TXQXnoKLWosRejhigYhnI4tbDsh6HUEAwmSfJH664as" ConnectionKey="41689888-fce2-4896-8592-efaca4ab1e60" FriendlyName="Offering Letter Report (Dummy)" FullPathHint="My Drive/hackathon/Offering Letter Report (Dummy)" InputMode="Browse" />
       </uga:ReadRangeConnections.Item>
       <uga:ReadRangeConnections.RangeMetadata>
         <ugsm:RangeMetadataSlim ColumnStart="1" RangeType="Range" />
@@ -173,7 +181,9 @@
     </uga:ReadRangeConnections>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetConfig - Invoke Workflow File (Bot1\GetConfig.xaml)" sap:VirtualizedContainerService.HintSize="416,204" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Bot1\GetConfig.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="Config">[Config]</OutArgument>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="Config">
+          <VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="Config" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_1" />
+        </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="FetchSubmittedTalents - Invoke Workflow File (Bot1\FetchSubmittedTalents.xaml)" sap:VirtualizedContainerService.HintSize="416,204" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Bot1\FetchSubmittedTalents.xaml">
@@ -187,13 +197,10 @@
         <InArgument x:TypeArguments="sd1:DataTable" x:Key="sheetData">[sheetData]</InArgument>
         <InOutArgument x:TypeArguments="x:String" x:Key="dataString">[dataString]</InOutArgument>
         <OutArgument x:TypeArguments="s:String[]" x:Key="uniqueValueTalents">[uniqueValueTalents]</OutArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendGmail - Invoke Workflow File (Bot1\SendGmail.xaml)" sap:VirtualizedContainerService.HintSize="416,204" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Bot1\SendGmail.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="s:String[]" x:Key="recipientEmails">[recipientEmails]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="dataString">[dataString]</InArgument>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="Config">[new System.Collections.Generic.Dictionary(Of System.String, System.String) From { { "email_Receipt", Config("email_Receipt").ToString() },{ "Subject", Config("Subject").ToString() } }]</InArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="indexTab" />
+        <InArgument x:TypeArguments="x:Int32" x:Key="foundIndex" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SaveSentTalentLog - Invoke Workflow File (Bot1\SaveSentTalentLog.xaml)" sap:VirtualizedContainerService.HintSize="416,195" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Bot1\SaveSentTalentLog.xaml">
