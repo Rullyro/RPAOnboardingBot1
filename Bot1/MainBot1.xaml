@@ -41,6 +41,7 @@
       <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -108,9 +109,10 @@
       <AssemblyReference>Studio.Generated.TypedDataTable6</AssemblyReference>
       <AssemblyReference>Studio.Generated.TypedDataTable4</AssemblyReference>
       <AssemblyReference>Studio.Generated.TypedDataTable3</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MainBot1" sap:VirtualizedContainerService.HintSize="696,1118" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="MainBot1" sap:VirtualizedContainerService.HintSize="696,1322" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd1:DataTable" Name="sheetData" />
       <Variable x:TypeArguments="x:String" Name="dataString" />
@@ -118,6 +120,7 @@
       <Variable x:TypeArguments="s:String[]" Name="previouslySentTalents" />
       <Variable x:TypeArguments="s:String[]" Name="uniqueValueTalents" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Config" />
+      <Variable x:TypeArguments="x:Int32" Name="foundIndex" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -199,8 +202,17 @@
         <OutArgument x:TypeArguments="s:String[]" x:Key="uniqueValueTalents">[uniqueValueTalents]</OutArgument>
         <InArgument x:TypeArguments="s:String[]" x:Key="recipientEmails">[recipientEmails]</InArgument>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="Config">[new System.Collections.Generic.Dictionary(Of System.String, System.String) From { { "email_Receipt", Config("email_Receipt").ToString() },{ "Subject", Config("Subject").ToString() } }]</InArgument>
-        <InOutArgument x:TypeArguments="x:Int32" x:Key="indexTab" />
-        <InArgument x:TypeArguments="x:Int32" x:Key="foundIndex" />
+        <OutArgument x:TypeArguments="x:Int32" x:Key="foundIndex">[foundIndex]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendGmail - Invoke Workflow File (Bot1\SendGmail.xaml)" sap:VirtualizedContainerService.HintSize="416,204" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Bot1\SendGmail.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="s:String[]" x:Key="recipientEmails">[recipientEmails]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="dataString">[dataString]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="Config">[new System.Collections.Generic.Dictionary(Of System.String, System.String) From { { "email_Receipt", Config("email_Receipt").ToString() },{ "Subject", Config("Subject").ToString() } }]</InArgument>
+        <InArgument x:TypeArguments="sd1:DataTable" x:Key="sheetData">[sheetData]</InArgument>
+        <InArgument x:TypeArguments="s:Int32[]" x:Key="indexTab" />
+        <InArgument x:TypeArguments="x:Int32" x:Key="foundIndex">[foundIndex]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SaveSentTalentLog - Invoke Workflow File (Bot1\SaveSentTalentLog.xaml)" sap:VirtualizedContainerService.HintSize="416,195" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Bot1\SaveSentTalentLog.xaml">
