@@ -213,6 +213,7 @@
         <InArgument x:TypeArguments="sd1:DataTable" x:Key="sheetData">[sheetData]</InArgument>
         <InArgument x:TypeArguments="s:Int32[]" x:Key="indexTab" />
         <InArgument x:TypeArguments="x:Int32" x:Key="foundIndex">[foundIndex]</InArgument>
+        <InArgument x:TypeArguments="s:String[]" x:Key="previouslySentTalents">[previouslySentTalents]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SaveSentTalentLog - Invoke Workflow File (Bot1\SaveSentTalentLog.xaml)" sap:VirtualizedContainerService.HintSize="416,195" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Bot1\SaveSentTalentLog.xaml">
