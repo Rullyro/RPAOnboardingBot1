@@ -1,12 +1,8 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="SendGmail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugam="clr-namespace:UiPath.GSuite.Activities.Models;assembly=UiPath.GSuite.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="recipientEmails" Type="InArgument(s:String[])" />
     <x:Property Name="dataString" Type="InArgument(x:String)" />
     <x:Property Name="Config" Type="InArgument(scg:Dictionary(x:String, x:String))" />
     <x:Property Name="sheetData" Type="InArgument(sd:DataTable)" />
-    <x:Property Name="indexTab" Type="InArgument(s:Int32[])" />
-    <x:Property Name="foundIndex" Type="InArgument(x:Int32)" />
-    <x:Property Name="previouslySentTalents" Type="InArgument(s:String[])" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -62,6 +58,8 @@
       <x:String>System.Numerics</x:String>
       <x:String>UiPath.GSuite.Activities.Enums</x:String>
       <x:String>System.Security</x:String>
+      <x:String>UiPath.GSuite.Activities.Sheets</x:String>
+      <x:String>UiPath.GSuite.Activities.Contracts</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -135,6 +133,10 @@
       <AssemblyReference>Studio.Generated.TypedDataTable3</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable1</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable7</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable1</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable8</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -142,7 +144,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="SendGmail" sap:VirtualizedContainerService.HintSize="1002,3085" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendGmail" sap:VirtualizedContainerService.HintSize="940,2912" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="index">
         <sap:WorkflowViewStateService.ViewState>
@@ -167,8 +169,8 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="570,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Sending emails.....&quot;]" />
-          <umab:GmailApplicationCard ClientId="{x:Null}" ClientSecret="{x:Null}" Account="Please select an account" ConnectionAccountName="risingstarftdoaibu@gmail.com" ConnectionId="ade2f49e-39f3-49f0-aace-5c1d94840f66" DisplayName="Use Gmail" sap:VirtualizedContainerService.HintSize="570,1024" sap2010:WorkflowViewState.IdRef="GmailApplicationCard_2" Timeout="90" UseConnectionService="True">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="570,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Sending emails.....&quot;]" />
+          <umab:GmailApplicationCard ClientId="{x:Null}" ClientSecret="{x:Null}" Account="Please select an account" ConnectionAccountName="1121130019@global.ac.id" ConnectionId="ee3a3ab4-72d7-4575-bfa2-ca240d5f8c90" DisplayName="Use Gmail" sap:VirtualizedContainerService.HintSize="570,1024" sap2010:WorkflowViewState.IdRef="GmailApplicationCard_2" Timeout="90" UseConnectionService="True">
             <umab:GmailApplicationCard.Body>
               <ActivityAction x:TypeArguments="um:IMailQuickHandle">
                 <ActivityAction.Argument>
@@ -178,6 +180,7 @@
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="targetEmail" />
                     <Variable x:TypeArguments="x:Int32" Default="-1" Name="foundRowIndex" />
+                    <Variable x:TypeArguments="s:String[]" Name="recipientEmails" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -262,21 +265,21 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[sheetData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="638,1411" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[sheetData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="638,1238" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,1224" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,1051" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[previouslySentTalents Is Nothing OrElse Not Array.Exists(previouslySentTalents, Function(item) item = CurrentRow.Item(&quot;Candidate Email&quot;).ToString())]" sap:VirtualizedContainerService.HintSize="518,1164" sap2010:WorkflowViewState.IdRef="If_3">
+            <If Condition="[CurrentRow(&quot;Status Robot Email&quot;).ToString = &quot;Progress&quot;]" sap:VirtualizedContainerService.HintSize="518,991" sap2010:WorkflowViewState.IdRef="If_3">
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484,914" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484,741" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -290,7 +293,6 @@
                       <InArgument x:TypeArguments="x:Int32">[sheetData.AsEnumerable().ToList().FindIndex(Function(r) r("Candidate Email").ToString() = CurrentRow("Candidate Email").ToString()) +2]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[indxint]" />
                   <uga:GSuiteApplicationScope ApiKey="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemFullPath="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserRuntimeItemFriendlyName="{x:Null}" BrowserRuntimeItemFullPath="{x:Null}" BrowserRuntimeItemId="{x:Null}" BrowserRuntimeParentItemId="{x:Null}" BucketId="{x:Null}" BucketName="{x:Null}" ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Connector="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" ManualRuntimeItemFullPath="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" Account="rosadirully5@gmail.com" AuthenticationType="OAuthClientID" BucketInputMode="Browse" ConfigLocation="PropertiesPanel" DataStoreLocation="DISK" DisplayName="Google Workspace Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="450,567" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_3" KeyType="JSON" OAuthClient="UIPATH" Password="notasecret" RuntimeItemInputMode="Browse" Services="Unselected" UseConnectionService="False" User="D5CF2EFE">
                     <uga:GSuiteApplicationScope.AuthenticationScopes>
                       <scg:List x:TypeArguments="InArgument(x:String)" Capacity="2">
@@ -309,7 +311,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uga:WriteCellConnections ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Offering Letter Report (Dummy)" BrowserItemId="1TXQXnoKLWosRejhigYhnI4tbDsh6HUEAwmSfJH664as" Cell="[&quot;AD&quot; + indxint.ToString]" DisplayName="Write Cell" HideCell="False" sap:VirtualizedContainerService.HintSize="382,266" sap2010:WorkflowViewState.IdRef="WriteCellConnections_3" ItemSelectionMode="Browse" RangeLocation="Sheet1" UseConnectionService="False" WhatToWrite="[&quot;Done&quot;]">
+                          <uga:WriteCellConnections ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Offering Letter Report (Dummy)" BrowserItemId="165orIVd662-v-6BYnt8sJLENrY0tvxh3NYk63mj_Tnk" Cell="[&quot;AD&quot; + indxint.ToString]" DisplayName="Write Cell" HideCell="False" sap:VirtualizedContainerService.HintSize="382,266" sap2010:WorkflowViewState.IdRef="WriteCellConnections_4" ItemSelectionMode="Browse" RangeLocation="Sheet1" UseConnectionService="False" WhatToWrite="[&quot;Done&quot;]">
                             <uga:WriteCellConnections.FileIdBackup>
                               <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="Browse">
                                 <usau:BackupSlot.BackupValues>
@@ -318,7 +320,7 @@
                               </usau:BackupSlot>
                             </uga:WriteCellConnections.FileIdBackup>
                             <uga:WriteCellConnections.Item>
-                              <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID0}" ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" Existing="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" BrowserId="1TXQXnoKLWosRejhigYhnI4tbDsh6HUEAwmSfJH664as" FriendlyName="Offering Letter Report (Dummy)" FullPathHint="My Drive/hackathon/Offering Letter Report (Dummy)" InputMode="Browse" />
+                              <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID0}" ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" Existing="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" BrowserId="165orIVd662-v-6BYnt8sJLENrY0tvxh3NYk63mj_Tnk" FriendlyName="Offering Letter Report (Dummy)" FullPathHint="My Drive/uipath/Offering Letter Report (Dummy)" InputMode="Browse" />
                             </uga:WriteCellConnections.Item>
                           </uga:WriteCellConnections>
                         </Sequence>

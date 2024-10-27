@@ -1,5 +1,5 @@
 {
-  "name": "RPAOnboarding",
+  "name": "RPAOnboarding Bot1 Send Emails",
   "projectId": "54d3f6a8-e65e-409b-8f75-01301aad9f26",
   "description": "Blank Process",
   "main": "Main.xaml",
@@ -52,7 +52,7 @@
   "entryPoints": [
     {
       "filePath": "Main.xaml",
-      "uniqueId": "e0d04020-c866-409a-81f1-599ec0f7aa06",
+      "uniqueId": "27ea9437-09cd-49e2-922a-13c45ea938ec",
       "input": [],
       "output": []
     }
