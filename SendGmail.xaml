@@ -144,7 +144,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="SendGmail" sap:VirtualizedContainerService.HintSize="940,2952" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendGmail" sap:VirtualizedContainerService.HintSize="644,2912" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="index">
         <sap:WorkflowViewStateService.ViewState>
@@ -161,16 +161,16 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[dataString IsNot Nothing AndAlso dataString.Contains(&quot;&lt;table&quot;)]" sap:VirtualizedContainerService.HintSize="638,1691" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[dataString IsNot Nothing AndAlso dataString.Contains(&quot;&lt;table&quot;)]" sap:VirtualizedContainerService.HintSize="638,1651" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="604,1297" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="604,1257" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="570,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Sending emails.....&quot;]" />
-          <umab:GmailApplicationCard ClientId="{x:Null}" ClientSecret="{x:Null}" Account="Please select an account" ConnectionAccountName="1121130019@global.ac.id" ConnectionId="ee3a3ab4-72d7-4575-bfa2-ca240d5f8c90" DisplayName="Use Gmail" sap:VirtualizedContainerService.HintSize="570,1064" sap2010:WorkflowViewState.IdRef="GmailApplicationCard_2" Timeout="90" UseConnectionService="True">
+          <umab:GmailApplicationCard ClientId="{x:Null}" ClientSecret="{x:Null}" Account="Please select an account" ConnectionAccountName="1121130019@global.ac.id" ConnectionId="ee3a3ab4-72d7-4575-bfa2-ca240d5f8c90" DisplayName="Use Gmail" sap:VirtualizedContainerService.HintSize="570,1024" sap2010:WorkflowViewState.IdRef="GmailApplicationCard_2" Timeout="90" UseConnectionService="True">
             <umab:GmailApplicationCard.Body>
               <ActivityAction x:TypeArguments="um:IMailQuickHandle">
                 <ActivityAction.Argument>

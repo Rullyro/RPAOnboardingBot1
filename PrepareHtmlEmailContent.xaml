@@ -259,7 +259,7 @@
       <AssemblyReference>Studio.Generated.TypedDataTable8</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PrepareHtmlEmailContent" sap:VirtualizedContainerService.HintSize="940,1655" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PrepareHtmlEmailContent" sap:VirtualizedContainerService.HintSize="644,1655" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="index">
         <sap:WorkflowViewStateService.ViewState>
@@ -281,7 +281,7 @@
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;p&gt;&lt;b&gt;Dear __DEAR__,&lt;/b&gt;&lt;/p&gt;"+
-"&lt;p&gt;&lt;b&gt;Mohon dapat disiapkan laptop dan email untuk Talents yang akan boarding dengan detail sbb:&lt;/b&gt;&lt;/p&gt;"]</InArgument>
+"&lt;p&gt;"+Config("Email Text").ToString()+"&lt;/p&gt;"]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index]" DataTable="[sheetData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="586,1517" sap2010:WorkflowViewState.IdRef="ForEachRow_1">

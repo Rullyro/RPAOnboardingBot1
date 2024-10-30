@@ -119,7 +119,7 @@
       <AssemblyReference>Studio.Generated.TypedDataTable9</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MainBot1" sap:VirtualizedContainerService.HintSize="940,914" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="MainBot1" sap:VirtualizedContainerService.HintSize="644,914" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd1:DataTable" Name="sheetData" />
       <Variable x:TypeArguments="x:String" Name="dataString" />
@@ -165,7 +165,7 @@
       <ui:InvokeWorkflowFile.Arguments>
         <InOutArgument x:TypeArguments="sd1:DataTable" x:Key="sheetData">[sheetData]</InOutArgument>
         <InOutArgument x:TypeArguments="x:String" x:Key="dataString">[dataString]</InOutArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="Config">[new System.Collections.Generic.Dictionary(Of System.String, System.String) From { { "Spreadsheet URL", Config("Spreadsheet URL").ToString() },{ "Sheet Name", Config("Sheet Name").ToString() } }]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="Config">[new System.Collections.Generic.Dictionary(Of System.String, System.String) From { { "Spreadsheet URL", Config("Spreadsheet URL").ToString() },{ "Sheet Name", Config("Sheet Name").ToString() },{ "Email Text", Config("Email Text").ToString() } }]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendGmail - Invoke Workflow File (SendGmail.xaml)" sap:VirtualizedContainerService.HintSize="416,195" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="SendGmail.xaml">
