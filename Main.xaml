@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="MainBot1" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="MainBot1_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=Studio.Generated.TypedDataTable8" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugam="clr-namespace:UiPath.GSuite.Activities.Models;assembly=UiPath.GSuite.Activities" xmlns:ugsm="clr-namespace:UiPath.GSuite.Sheets.Models;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="MainBot1" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="MainBot1_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=Studio.Generated.TypedDataTable9" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugam="clr-namespace:UiPath.GSuite.Activities.Models;assembly=UiPath.GSuite.Activities" xmlns:ugsm="clr-namespace:UiPath.GSuite.Sheets.Models;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -114,6 +114,9 @@
       <AssemblyReference>Studio.Generated.TypedDataTable7</AssemblyReference>
       <AssemblyReference>Studio.Generated.TypedDataTable1</AssemblyReference>
       <AssemblyReference>Studio.Generated.TypedDataTable8</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable9</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable9</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable9</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="MainBot1" sap:VirtualizedContainerService.HintSize="940,914" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -127,61 +130,6 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uga:ReadRangeConnections x:TypeArguments="sd:DataTable8" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" RangeInformation="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Offering Letter Report (Dummy)" BrowserItemId="165orIVd662-v-6BYnt8sJLENrY0tvxh3NYk63mj_Tnk" ConnectionId="b7369a67-d869-43b7-93c8-c025c85f71b0" DisplayName="Read Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="416,288" sap2010:WorkflowViewState.IdRef="ReadRangeConnections`1_2" ItemSelectionMode="Browse" Range="Sheet1" ReadAs="Values" Result="[sheetData]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False">
-      <uga:ReadRangeConnections.ColumnNames>
-        <x:Array Type="x:String">
-          <x:String>No.</x:String>
-          <x:String>Nomor Offering</x:String>
-          <x:String>Date</x:String>
-          <x:String>Company</x:String>
-          <x:String>Department</x:String>
-          <x:String>Candidate Name</x:String>
-          <x:String>Position</x:String>
-          <x:String>Role</x:String>
-          <x:String>Employment Status</x:String>
-          <x:String>Contract Based</x:String>
-          <x:String>Candidate Email</x:String>
-          <x:String>Basic Salary</x:String>
-          <x:String>Performance Allowance</x:String>
-          <x:String>Transportation Allowance</x:String>
-          <x:String>Total Salary</x:String>
-          <x:String>Recruiter</x:String>
-          <x:String>Status Offering</x:String>
-          <x:String>Join Date</x:String>
-          <x:String>Boarding Date</x:String>
-          <x:String>Grade</x:String>
-          <x:String>Contact Number</x:String>
-          <x:String>Employee Email</x:String>
-          <x:String>Direct Leader Name</x:String>
-          <x:String>Direct Leader Email</x:String>
-          <x:String>Placement</x:String>
-          <x:String>Project</x:String>
-          <x:String>User Project</x:String>
-          <x:String>Status Robot Offering</x:String>
-          <x:String>Status Robot Boarding</x:String>
-          <x:String>Status Robot Email</x:String>
-        </x:Array>
-      </uga:ReadRangeConnections.ColumnNames>
-      <uga:ReadRangeConnections.FileIdBackup>
-        <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="Browse">
-          <usau:BackupSlot.BackupValues>
-            <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="2">
-              <InArgument x:TypeArguments="x:String" />
-              <InArgument x:TypeArguments="x:String" />
-            </scg:List>
-            <scg:List x:TypeArguments="x:Object" x:Key="UrlOrId" Capacity="1">
-              <InArgument x:TypeArguments="x:String">[Dim url As String = "https://docs.google.com/spreadsheets/d/16xDUnAiqM1yolMnhlDWBIgkLjRCl4CUE_4U6EKl4KA8/edit"]</InArgument>
-            </scg:List>
-          </usau:BackupSlot.BackupValues>
-        </usau:BackupSlot>
-      </uga:ReadRangeConnections.FileIdBackup>
-      <uga:ReadRangeConnections.Item>
-        <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID0}" ConnectionDescriptor="{x:Null}" Existing="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" BrowserId="165orIVd662-v-6BYnt8sJLENrY0tvxh3NYk63mj_Tnk" ConnectionKey="b7369a67-d869-43b7-93c8-c025c85f71b0" FriendlyName="Offering Letter Report (Dummy)" FullPathHint="My Drive/uipath/Offering Letter Report (Dummy)" InputMode="Browse" />
-      </uga:ReadRangeConnections.Item>
-      <uga:ReadRangeConnections.RangeMetadata>
-        <ugsm:RangeMetadataSlim ColumnStart="1" RangeType="Range" />
-      </uga:ReadRangeConnections.RangeMetadata>
-    </uga:ReadRangeConnections>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetConfig - Invoke Workflow File (Bot1\GetConfig.xaml)" sap:VirtualizedContainerService.HintSize="416,204" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="GetConfig.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="Config">
@@ -189,16 +137,41 @@
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
+    <uga:ReadRangeConnections x:TypeArguments="sd:DataTable9" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" ColumnNames="{x:Array Type=x:String}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" RangeInformation="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" ConnectionId="b7369a67-d869-43b7-93c8-c025c85f71b0" DisplayName="Read Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="416,288" sap2010:WorkflowViewState.IdRef="ReadRangeConnections`1_2" ItemSelectionMode="UrlOrId" ManualEntrySpreadsheetId="[Config(&quot;Spreadsheet URL&quot;).ToString()]" Range="[Config(&quot;Sheet Name&quot;).ToString()]" ReadAs="Values" Result="[sheetData]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False">
+      <uga:ReadRangeConnections.FileIdBackup>
+        <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="UrlOrId">
+          <usau:BackupSlot.BackupValues>
+            <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="2">
+              <InArgument x:TypeArguments="x:String">165orIVd662-v-6BYnt8sJLENrY0tvxh3NYk63mj_Tnk</InArgument>
+              <InArgument x:TypeArguments="x:String">Offering Letter Report (Dummy)</InArgument>
+            </scg:List>
+            <scg:List x:TypeArguments="x:Object" x:Key="UrlOrId" Capacity="1">
+              <x:Null />
+            </scg:List>
+            <scg:List x:TypeArguments="x:Object" x:Key="UseExisting" Capacity="1">
+              <x:Null />
+            </scg:List>
+          </usau:BackupSlot.BackupValues>
+        </usau:BackupSlot>
+      </uga:ReadRangeConnections.FileIdBackup>
+      <uga:ReadRangeConnections.Item>
+        <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID0}" BrowserId="{x:Null}" ConnectionDescriptor="{x:Null}" Existing="{x:Null}" FriendlyName="{x:Null}" FullPath="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" ConnectionKey="b7369a67-d869-43b7-93c8-c025c85f71b0" FullPathHint="My Drive/uipath/Offering Letter Report (Dummy)" IdOrUrl="[Config(&quot;Spreadsheet URL&quot;).ToString()]" InputMode="UrlOrId" />
+      </uga:ReadRangeConnections.Item>
+      <uga:ReadRangeConnections.RangeMetadata>
+        <ugsm:RangeMetadataSlim ColumnStart="1" RangeType="Range" />
+      </uga:ReadRangeConnections.RangeMetadata>
+    </uga:ReadRangeConnections>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PrepareHtmlEmailContent - Invoke Workflow File (Bot1\PrepareHtmlEmailContent.xaml)" sap:VirtualizedContainerService.HintSize="416,204" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="PrepareHtmlEmailContent.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InOutArgument x:TypeArguments="sd1:DataTable" x:Key="sheetData">[sheetData]</InOutArgument>
         <InOutArgument x:TypeArguments="x:String" x:Key="dataString">[dataString]</InOutArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="Config">[new System.Collections.Generic.Dictionary(Of System.String, System.String) From { { "Spreadsheet URL", Config("Spreadsheet URL").ToString() },{ "Sheet Name", Config("Sheet Name").ToString() } }]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendGmail - Invoke Workflow File (SendGmail.xaml)" sap:VirtualizedContainerService.HintSize="416,195" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="SendGmail.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="dataString">[dataString]</InArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="Config">[new System.Collections.Generic.Dictionary(Of System.String, System.String) From { { "email_Receipt", Config("email_Receipt").ToString() },{ "Subject", Config("Subject").ToString() } }]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="Config">[new System.Collections.Generic.Dictionary(Of System.String, System.String) From { { "email_Receipt", Config("email_Receipt").ToString() },{ "Subject", Config("Email Subject").ToString() },{ "Spreadsheet URL", Config("Spreadsheet URL").ToString() },{ "Sheet Name", Config("Sheet Name").ToString() } }]</InArgument>
         <InArgument x:TypeArguments="sd1:DataTable" x:Key="sheetData">[sheetData]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>

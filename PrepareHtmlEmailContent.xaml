@@ -2,6 +2,7 @@
   <x:Members>
     <x:Property Name="sheetData" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="dataString" Type="InOutArgument(x:String)" />
+    <x:Property Name="Config" Type="InArgument(scg:Dictionary(x:String, x:String))" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -423,16 +424,19 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uga:WriteCellConnections ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Offering Letter Report (Dummy)" BrowserItemId="165orIVd662-v-6BYnt8sJLENrY0tvxh3NYk63mj_Tnk" Cell="[&quot;AD&quot;+indxint.ToString]" DisplayName="Write Cell" HideCell="False" sap:VirtualizedContainerService.HintSize="382,266" sap2010:WorkflowViewState.IdRef="WriteCellConnections_2" ItemSelectionMode="Browse" RangeLocation="Sheet1" UseConnectionService="False" WhatToWrite="[&quot;Progress&quot;]">
+                          <uga:WriteCellConnections BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" Spreadsheet="{x:Null}" AuthScopesInvalid="False" Cell="[&quot;AD&quot;+indxint.ToString]" DisplayName="Write Cell" HideCell="False" sap:VirtualizedContainerService.HintSize="382,266" sap2010:WorkflowViewState.IdRef="WriteCellConnections_2" ItemSelectionMode="UrlOrId" ManualEntrySpreadsheetId="[Config(&quot;Spreadsheet URL&quot;).ToString()]" RangeLocation="[Config(&quot;Sheet Name&quot;).ToString()]" UseConnectionService="False" WhatToWrite="[&quot;Progress&quot;]">
                             <uga:WriteCellConnections.FileIdBackup>
-                              <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="Browse">
+                              <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="UrlOrId">
                                 <usau:BackupSlot.BackupValues>
-                                  <scg:Dictionary x:TypeArguments="ugade:EDriveItemMode, scg:List(x:Object)" />
+                                  <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="2">
+                                    <InArgument x:TypeArguments="x:String">165orIVd662-v-6BYnt8sJLENrY0tvxh3NYk63mj_Tnk</InArgument>
+                                    <InArgument x:TypeArguments="x:String">Offering Letter Report (Dummy)</InArgument>
+                                  </scg:List>
                                 </usau:BackupSlot.BackupValues>
                               </usau:BackupSlot>
                             </uga:WriteCellConnections.FileIdBackup>
                             <uga:WriteCellConnections.Item>
-                              <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID0}" ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" Existing="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" BrowserId="165orIVd662-v-6BYnt8sJLENrY0tvxh3NYk63mj_Tnk" FriendlyName="Offering Letter Report (Dummy)" FullPathHint="My Drive/uipath/Offering Letter Report (Dummy)" InputMode="Browse" />
+                              <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID0}" BrowserId="{x:Null}" ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" Existing="{x:Null}" FriendlyName="{x:Null}" FullPath="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" FullPathHint="My Drive/uipath/Offering Letter Report (Dummy)" IdOrUrl="[Config(&quot;Spreadsheet URL&quot;).ToString()]" InputMode="UrlOrId" />
                             </uga:WriteCellConnections.Item>
                           </uga:WriteCellConnections>
                         </Sequence>
