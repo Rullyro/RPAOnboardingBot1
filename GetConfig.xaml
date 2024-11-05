@@ -115,7 +115,7 @@
       <AssemblyReference>Studio.Generated.TypedDataTable7</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetConfig" sap:VirtualizedContainerService.HintSize="670,2472" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetConfig" sap:VirtualizedContainerService.HintSize="1282,2472" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtExcel" />
     </Sequence.Variables>
@@ -318,7 +318,7 @@
                   <OutArgument x:TypeArguments="x:String">[column_info]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[column_info+"|"+Row.item(0).ToString()+","+Row.item(0).ToString()]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[column_info+"|"+Row.item(0).ToString()+","+Row.item(1).ToString()]</InArgument>
                 </Assign.Value>
               </Assign>
             </Sequence>
@@ -341,12 +341,8 @@
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <InArgument x:TypeArguments="x:String">
-          <Literal x:TypeArguments="x:String">column_info</Literal>
-        </InArgument>
-        <InArgument x:TypeArguments="x:String">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="column_info.Substring(1)" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String">column_info</InArgument>
+        <InArgument x:TypeArguments="x:String">[column_info.Substring(1)]</InArgument>
       </InvokeMethod>
     </Sequence>
   </Sequence>

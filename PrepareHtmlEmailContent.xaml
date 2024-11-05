@@ -259,7 +259,7 @@
       <AssemblyReference>Studio.Generated.TypedDataTable8</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PrepareHtmlEmailContent" sap:VirtualizedContainerService.HintSize="1282,2014" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PrepareHtmlEmailContent" sap:VirtualizedContainerService.HintSize="1282,1680" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="index">
         <sap:WorkflowViewStateService.ViewState>
@@ -275,28 +275,30 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="640,115" sap2010:WorkflowViewState.IdRef="Assign_8">
+    <Assign sap:VirtualizedContainerService.HintSize="586,115" sap2010:WorkflowViewState.IdRef="Assign_8">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[dataString]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;p&gt;&lt;b&gt;Dear __DEAR__,&lt;/b&gt;&lt;/p&gt;"+
-"&lt;p&gt;"+Config("Email Text").ToString()+"&lt;/p&gt;"]</InArgument>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;div&gt;"+
+    "&lt;p style='line-height:20px'&gt;&lt;b&gt;Dear __DEAR__,&lt;/b&gt;&lt;/p&gt;"+
+    "&lt;p style='line-height:20px'&gt;"+Config("Email Text").ToString()+"&lt;/p&gt;"+
+"&lt;/div&gt;"]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index]" DataTable="[sheetData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="640,1876" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index]" DataTable="[sheetData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="586,1542" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="606,1689" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,1355" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[CurrentRow.Item(&quot;Status Robot Email&quot;).ToString().Contains(&quot;Done&quot;)]" sap:VirtualizedContainerService.HintSize="572,1629" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[CurrentRow.Item(&quot;Status Robot Email&quot;).ToString().Contains(&quot;Done&quot;)]" sap:VirtualizedContainerService.HintSize="518,1295" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
@@ -320,7 +322,7 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="538,1443" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484,1109" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Int32" Name="indxint" />
                     <Variable x:TypeArguments="x:Int32" Name="NewItemIndex1" />
@@ -330,73 +332,14 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="504,277" sap2010:WorkflowViewState.IdRef="CommentOut_6">
-                    <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="468,166" sap2010:WorkflowViewState.IdRef="Sequence_14">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_1">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="x:String">[dataString]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[dataString +"&lt;table border='1' cellspacing='0' cellpadding='4'&gt;" +
-        "&lt;tr&gt;&lt;td&gt;Name&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Candidate Name").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
-        "&lt;tr&gt;&lt;td&gt;Position&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Position").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
-        "&lt;tr&gt;&lt;td&gt;Role&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Role").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
-        "&lt;tr&gt;&lt;td&gt;Join Date&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Join Date").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
-        "&lt;tr&gt;&lt;td&gt;Boarding Date&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Boarding Date").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
-		 "&lt;tr&gt;&lt;td&gt;Email&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Candidate Email").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
-		 "&lt;tr&gt;&lt;td&gt;Contact Number&lt;/td&gt;" + CurrentRow.Item("Contact Number").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
-        "&lt;tr&gt;&lt;td&gt;Hired By&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Company").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
-		"&lt;tr&gt;&lt;td&gt;Status&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Employment Status").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
-		"&lt;tr&gt;&lt;td&gt;Contract Based&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Contract Based").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
-		 "&lt;tr&gt;&lt;td&gt;Direct Leader Name&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Direct Leader Name").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
-        "&lt;tr&gt;&lt;td&gt;Placement&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Placement").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
-        "&lt;tr&gt;&lt;td&gt;Project&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("Project").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
-        "&lt;tr&gt;&lt;td&gt;User Project&lt;/td&gt;&lt;td&gt;" + CurrentRow.Item("User Project").ToString() + "&lt;/td&gt;&lt;/tr&gt;" + _
-    "&lt;/table&gt;&lt;br/&gt;"]</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                      </Sequence>
-                    </ui:CommentOut.Body>
-                  </ui:CommentOut>
-                  <ui:InvokeCode ContinueOnError="{x:Null}" Code="' Memecah string berdasarkan &quot;|&quot;&#xD;&#xA;Dim column_info As String() ' Menggunakan array string alih-alih ArrayList&#xD;&#xA;column_info = Config(&quot;column_info&quot;).ToString().Split(&quot;|&quot;c)&#xD;&#xA;&#xD;&#xA;' Inisialisasi variabel untuk menyimpan hasil&#xD;&#xA;dataString += &quot;&lt;table border='1' cellspacing='0' cellpadding='4'&gt;&quot;&#xD;&#xA;&#xD;&#xA;' Looping melalui setiap elemen di column_info&#xD;&#xA;For Each column As String In column_info&#xD;&#xA;    ' Memecah setiap elemen berdasarkan &quot;,&quot;&#xD;&#xA;    Dim columnParts As String() = column.Split(&quot;,&quot;c) ' Menggunakan array string&#xD;&#xA;&#xD;&#xA;    ' Pastikan CurrentRow dideklarasikan dengan benar sebelumnya&#xD;&#xA;    If columnParts.Length = 2 Then&#xD;&#xA;        dataString += &quot;&lt;tr&gt;&lt;td&gt;&quot; + columnParts(0) + &quot;&lt;/td&gt;&lt;td&gt;&quot; + CurrentRow(columnParts(1)).ToString() + &quot;&lt;/td&gt;&lt;/tr&gt;&quot;&#xD;&#xA;    End If&#xD;&#xA;Next&#xD;&#xA;&#xD;&#xA;dataString += &quot;&lt;/table&gt;&lt;br/&gt;&quot;" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="504,197" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+                  <ui:InvokeCode ContinueOnError="{x:Null}" Code="' Memecah string berdasarkan &quot;|&quot;&#xD;&#xA;Dim column_info As String() ' Menggunakan array string alih-alih ArrayList&#xD;&#xA;column_info = Config(&quot;column_info&quot;).ToString().Split(&quot;|&quot;c)&#xD;&#xA;&#xD;&#xA;' Inisialisasi variabel untuk menyimpan hasil&#xD;&#xA;dataString += &quot;&lt;div info='datatable' style='padding:20px;background-color:#f9f9f9;border-radius:6px;margin-top:25px;line-height:16px'&gt;&quot;&#xD;&#xA;&#xD;&#xA;' Looping melalui setiap elemen di column_info&#xD;&#xA;For Each column As String In column_info&#xD;&#xA;    ' Memecah setiap elemen berdasarkan &quot;,&quot;&#xD;&#xA;    Dim columnParts As String() = column.Split(&quot;,&quot;c) ' Menggunakan array string&#xD;&#xA;&#xD;&#xA;    If columnParts.Length = 2 Then&#xD;&#xA;        dataString += &quot;&lt;div style='color:#687790;font-size:12px'&gt;&quot; + columnParts(0) + &quot;&lt;/div&gt;&#xD;&#xA;      &lt;h2 style='font-size:14px;margin-bottom:5px;margin-top:3px'&gt;&#xD;&#xA;         &quot; + CurrentRow(columnParts(1)).ToString() + &quot;&#xD;&#xA;      &lt;/h2&gt;&#xD;&#xA;      &lt;hr style='border:1px solid #dedede;border-bottom:0;margin:10px 0'&gt;&quot;&#xD;&#xA;    End If&#xD;&#xA;Next&#xD;&#xA;&#xD;&#xA;dataString += &quot;&lt;/div&gt;&lt;br/&gt;&quot;&#xD;&#xA;" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="450,197" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
                     <ui:InvokeCode.Arguments>
-                      <InOutArgument x:TypeArguments="x:String" x:Key="dataString">
-                        <VisualBasicReference x:TypeArguments="x:String" ExpressionText="dataString" />
-                      </InOutArgument>
-                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="Config">
-                        <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="Config" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="sd:DataRow" x:Key="CurrentRow">
-                        <VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="CurrentRow" />
-                      </InArgument>
+                      <InOutArgument x:TypeArguments="x:String" x:Key="dataString">[dataString]</InOutArgument>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="Config">[Config]</InArgument>
+                      <InArgument x:TypeArguments="sd:DataRow" x:Key="CurrentRow">[CurrentRow]</InArgument>
                     </ui:InvokeCode.Arguments>
                   </ui:InvokeCode>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="504,57" sap2010:WorkflowViewState.IdRef="CommentOut_3">
-                    <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,397" sap2010:WorkflowViewState.IdRef="Sequence_11">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Trace" Message="[&quot;Adding: &quot;+CurrentRow.Item(&quot;Candidate Email&quot;).ToString()]" />
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[String.Join(&quot;, &quot;, sheetData.Columns.Cast(Of DataColumn).Select(Function(c) c.ColumnName))]" />
-                      </Sequence>
-                    </ui:CommentOut.Body>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </ui:CommentOut>
-                  <Assign sap:VirtualizedContainerService.HintSize="504,114" sap2010:WorkflowViewState.IdRef="Assign_17">
+                  <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_17">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Int32">[indxint]</OutArgument>
                     </Assign.To>
@@ -404,7 +347,7 @@
                       <InArgument x:TypeArguments="x:Int32">[sheetData.AsEnumerable().ToList().FindIndex(Function(r) r("Candidate Email").ToString() = CurrentRow("Candidate Email").ToString()) +2]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Assign sap:VirtualizedContainerService.HintSize="504,114" sap2010:WorkflowViewState.IdRef="Assign_18">
+                  <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_18">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Object">[sheetData(indxint-2)("Status Robot Email")]</OutArgument>
                     </Assign.To>
@@ -412,7 +355,7 @@
                       <InArgument x:TypeArguments="x:Object">["Progress"]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="504,57" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="CommentOut_5">
                     <ui:CommentOut.Body>
                       <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_13">
                         <sap:WorkflowViewStateService.ViewState>
@@ -430,7 +373,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CommentOut>
-                  <uga:GSuiteApplicationScope ApiKey="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemFullPath="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserRuntimeItemFriendlyName="{x:Null}" BrowserRuntimeItemFullPath="{x:Null}" BrowserRuntimeItemId="{x:Null}" BrowserRuntimeParentItemId="{x:Null}" BucketId="{x:Null}" BucketName="{x:Null}" ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Connector="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" ManualRuntimeItemFullPath="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" Account="1121130019@global.ac.id" AuthenticationType="OAuthClientID" BucketInputMode="Browse" ConfigLocation="PropertiesPanel" DataStoreLocation="DISK" DisplayName="Google Workspace Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="504,567" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_1" KeyType="JSON" OAuthClient="UIPATH" Password="notasecret" RuntimeItemInputMode="Browse" Services="Unselected" UseConnectionService="False" User="65BDE574">
+                  <uga:GSuiteApplicationScope ApiKey="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemFullPath="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserRuntimeItemFriendlyName="{x:Null}" BrowserRuntimeItemFullPath="{x:Null}" BrowserRuntimeItemId="{x:Null}" BrowserRuntimeParentItemId="{x:Null}" BucketId="{x:Null}" BucketName="{x:Null}" ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Connector="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" ManualRuntimeItemFullPath="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" Account="1121130019@global.ac.id" AuthenticationType="OAuthClientID" BucketInputMode="Browse" ConfigLocation="PropertiesPanel" DataStoreLocation="DISK" DisplayName="Google Workspace Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="450,567" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_1" KeyType="JSON" OAuthClient="UIPATH" Password="notasecret" RuntimeItemInputMode="Browse" Services="Unselected" UseConnectionService="False" User="65BDE574">
                     <uga:GSuiteApplicationScope.AuthenticationScopes>
                       <scg:List x:TypeArguments="InArgument(x:String)" Capacity="2">
                         <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/drive</InArgument>

@@ -144,7 +144,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="SendGmail" sap:VirtualizedContainerService.HintSize="644,2912" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendGmail" sap:VirtualizedContainerService.HintSize="1282,2912" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="index">
         <sap:WorkflowViewStateService.ViewState>
@@ -161,7 +161,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[dataString IsNot Nothing AndAlso dataString.Contains(&quot;&lt;table&quot;)]" sap:VirtualizedContainerService.HintSize="638,1651" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[dataString IsNot Nothing AndAlso dataString.Contains(&quot;datatable&quot;)]" sap:VirtualizedContainerService.HintSize="638,1651" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="604,1257" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
@@ -228,7 +228,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <umab:SendMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromFile="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Gmail]" Body="[dataString.Replace(&quot;__DEAR__&quot;, Split(currentText, &quot;,&quot;)(1))]" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,391" sap2010:WorkflowViewState.IdRef="SendMailX_2" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="[Config(&quot;Subject&quot;).ToString()]" To="[Split(currentText, &quot;,&quot;)(0)]" UseDocumentAsBody="False">
+                          <umab:SendMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromFile="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Gmail]" Body="[&quot;&lt;div style='background:#ffffff;border-radius:6px;padding:25px;border:1px solid #efefef;font-size:14px;margin-bottom:25px'&gt;&quot;+&#xD;&#xA;dataString.Replace(&quot;__DEAR__&quot;, Split(currentText, &quot;,&quot;)(1))+&#xD;&#xA;&quot;&lt;/div&gt;&quot;]" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,391" sap2010:WorkflowViewState.IdRef="SendMailX_2" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="[Config(&quot;Subject&quot;).ToString()]" To="[Split(currentText, &quot;,&quot;)(0)]" UseDocumentAsBody="False">
                             <umab:SendMailX.Files>
                               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                             </umab:SendMailX.Files>
