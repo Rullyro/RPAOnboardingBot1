@@ -259,7 +259,7 @@
       <AssemblyReference>Studio.Generated.TypedDataTable8</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PrepareHtmlEmailContent" sap:VirtualizedContainerService.HintSize="1282,1680" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PrepareHtmlEmailContent" sap:VirtualizedContainerService.HintSize="676,1877" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="index">
         <sap:WorkflowViewStateService.ViewState>
@@ -269,6 +269,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </Variable>
+      <Variable x:TypeArguments="x:String" Name="RobotStatusCell" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -286,6 +287,16 @@
 "&lt;/div&gt;"]</InArgument>
       </Assign.Value>
     </Assign>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="' Get index of column 'Status Robot Email'&#xD;&#xA;Dim indexRobotStatusCol As Integer = -1&#xD;&#xA;For i As Integer = 0 To dt.Columns.Count - 1&#xD;&#xA;    ' Console.WriteLine(i &amp; &quot;, &quot; &amp; dt.Columns(i).ColumnName)&#xD;&#xA;    If dt.Columns(i).ColumnName = &quot;Status Robot Email&quot; Then&#xD;&#xA;        indexRobotStatusCol = i&#xD;&#xA;    End If&#xD;&#xA;Next&#xD;&#xA;&#xD;&#xA;If indexRobotStatusCol = -1 Then&#xD;&#xA;    Throw New Exception(&quot;Column 'Status Robot Email' not found in data.&quot;)&#xD;&#xA;Else&#xD;&#xA;    indexRobotStatusCol += 1&#xD;&#xA;End If&#xD;&#xA;&#xD;&#xA;'Console.WriteLine(&quot;Index kolom 'Status Robot Email': &quot; &amp; indexRobotStatusCol)&#xD;&#xA;&#xD;&#xA;' Convert to alphabetical column name&#xD;&#xA;'Dim RobotStatusCell As String = &quot;&quot;&#xD;&#xA;While indexRobotStatusCol &gt; 0&#xD;&#xA;    indexRobotStatusCol -= 1&#xD;&#xA;    RobotStatusCell = Chr(65 + (indexRobotStatusCol Mod 26)) &amp; RobotStatusCell&#xD;&#xA;    indexRobotStatusCol \= 26&#xD;&#xA;End While&#xD;&#xA;&#xD;&#xA;'Console.WriteLine(&quot;Kolom 'Status Robot Email' dalam huruf: &quot; &amp; RobotStatusCell)" DisplayName="Invoke Code to retrieve the RobotStatusCell" sap:VirtualizedContainerService.HintSize="586,197" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+      <ui:InvokeCode.Arguments>
+        <OutArgument x:TypeArguments="x:String" x:Key="RobotStatusCell">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="RobotStatusCell" />
+        </OutArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="dt">
+          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="sheetData" />
+        </InArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
     <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index]" DataTable="[sheetData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="586,1542" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
@@ -332,7 +343,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeCode ContinueOnError="{x:Null}" Code="' Memecah string berdasarkan &quot;|&quot;&#xD;&#xA;Dim column_info As String() ' Menggunakan array string alih-alih ArrayList&#xD;&#xA;column_info = Config(&quot;column_info&quot;).ToString().Split(&quot;|&quot;c)&#xD;&#xA;&#xD;&#xA;' Inisialisasi variabel untuk menyimpan hasil&#xD;&#xA;dataString += &quot;&lt;div info='datatable' style='padding:20px;background-color:#f9f9f9;border-radius:6px;margin-top:25px;line-height:16px'&gt;&quot;&#xD;&#xA;&#xD;&#xA;' Looping melalui setiap elemen di column_info&#xD;&#xA;For Each column As String In column_info&#xD;&#xA;    ' Memecah setiap elemen berdasarkan &quot;,&quot;&#xD;&#xA;    Dim columnParts As String() = column.Split(&quot;,&quot;c) ' Menggunakan array string&#xD;&#xA;&#xD;&#xA;    If columnParts.Length = 2 Then&#xD;&#xA;        dataString += &quot;&lt;div style='color:#687790;font-size:12px'&gt;&quot; + columnParts(0) + &quot;&lt;/div&gt;&#xD;&#xA;      &lt;h2 style='font-size:14px;margin-bottom:5px;margin-top:3px'&gt;&#xD;&#xA;         &quot; + CurrentRow(columnParts(1)).ToString() + &quot;&#xD;&#xA;      &lt;/h2&gt;&#xD;&#xA;      &lt;hr style='border:1px solid #dedede;border-bottom:0;margin:10px 0'&gt;&quot;&#xD;&#xA;    End If&#xD;&#xA;Next&#xD;&#xA;&#xD;&#xA;dataString += &quot;&lt;/div&gt;&lt;br/&gt;&quot;&#xD;&#xA;" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="450,197" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+                  <ui:InvokeCode ContinueOnError="{x:Null}" Code="' Memecah string berdasarkan &quot;|&quot;&#xA;Dim column_info As String() ' Menggunakan array string alih-alih ArrayList&#xA;column_info = Config(&quot;column_info&quot;).ToString().Split(&quot;|&quot;c)&#xA;&#xA;' Inisialisasi variabel untuk menyimpan hasil&#xA;dataString += &quot;&lt;div info='datatable' style='padding:20px;background-color:#f9f9f9;border-radius:6px;margin-top:25px;line-height:16px'&gt;&quot;&#xA;&#xA;' Looping melalui setiap elemen di column_info&#xA;For Each column As String In column_info&#xA;    ' Memecah setiap elemen berdasarkan &quot;,&quot;&#xA;    Dim columnParts As String() = column.Split(&quot;,&quot;c) ' Menggunakan array string&#xA;&#xA;    If columnParts.Length = 2 Then&#xA;        dataString += &quot;&lt;div style='color:#687790;font-size:12px'&gt;&quot; + columnParts(0) + &quot;&lt;/div&gt;&#xA;      &lt;h2 style='font-size:14px;margin-bottom:5px;margin-top:3px'&gt;&#xA;         &quot; + CurrentRow(columnParts(1)).ToString() + &quot;&#xA;      &lt;/h2&gt;&#xA;      &lt;hr style='border:1px solid #dedede;border-bottom:0;margin:10px 0'&gt;&quot;&#xA;    End If&#xA;Next&#xA;&#xA;dataString += &quot;&lt;/div&gt;&lt;br/&gt;&quot;&#xA;" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="450,197" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
                     <ui:InvokeCode.Arguments>
                       <InOutArgument x:TypeArguments="x:String" x:Key="dataString">[dataString]</InOutArgument>
                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="Config">[Config]</InArgument>
@@ -391,7 +402,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uga:WriteCellConnections BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" Spreadsheet="{x:Null}" AuthScopesInvalid="False" Cell="[&quot;AD&quot;+indxint.ToString]" DisplayName="Write Cell" HideCell="False" sap:VirtualizedContainerService.HintSize="382,266" sap2010:WorkflowViewState.IdRef="WriteCellConnections_2" ItemSelectionMode="UrlOrId" ManualEntrySpreadsheetId="[Config(&quot;Spreadsheet URL&quot;).ToString()]" RangeLocation="[Config(&quot;Sheet Name&quot;).ToString()]" UseConnectionService="False" WhatToWrite="[&quot;Progress&quot;]">
+                          <uga:WriteCellConnections BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" Spreadsheet="{x:Null}" AuthScopesInvalid="False" Cell="[RobotStatusCell+indxint.ToString]" DisplayName="Write Cell" HideCell="False" sap:VirtualizedContainerService.HintSize="382,266" sap2010:WorkflowViewState.IdRef="WriteCellConnections_2" ItemSelectionMode="UrlOrId" ManualEntrySpreadsheetId="[Config(&quot;Spreadsheet URL&quot;).ToString()]" RangeLocation="[Config(&quot;Sheet Name&quot;).ToString()]" UseConnectionService="False" WhatToWrite="[&quot;Progress&quot;]">
                             <uga:WriteCellConnections.FileIdBackup>
                               <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="UrlOrId">
                                 <usau:BackupSlot.BackupValues>

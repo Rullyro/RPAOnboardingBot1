@@ -137,6 +137,7 @@
       <AssemblyReference>Studio.Generated.TypedDataTable7</AssemblyReference>
       <AssemblyReference>Studio.Generated.TypedDataTable1</AssemblyReference>
       <AssemblyReference>Studio.Generated.TypedDataTable8</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable9</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -144,7 +145,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="SendGmail" sap:VirtualizedContainerService.HintSize="1282,2912" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendGmail" sap:VirtualizedContainerService.HintSize="676,1877" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="index">
         <sap:WorkflowViewStateService.ViewState>
@@ -155,18 +156,26 @@
         </sap:WorkflowViewStateService.ViewState>
       </Variable>
       <Variable x:TypeArguments="x:Int32" Name="indxint" />
+      <Variable x:TypeArguments="x:String" Name="RobotStatusCell" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[dataString IsNot Nothing AndAlso dataString.Contains(&quot;datatable&quot;)]" sap:VirtualizedContainerService.HintSize="638,1651" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[dataString IsNot Nothing AndAlso dataString.Contains(&quot;datatable&quot;)]" sap:VirtualizedContainerService.HintSize="586,419" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="604,1257" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="570,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Sending emails.....&quot;]" />
@@ -228,7 +237,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <umab:SendMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromFile="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Gmail]" Body="[&quot;&lt;div style='background:#ffffff;border-radius:6px;padding:25px;border:1px solid #efefef;font-size:14px;margin-bottom:25px'&gt;&quot;+&#xD;&#xA;dataString.Replace(&quot;__DEAR__&quot;, Split(currentText, &quot;,&quot;)(1))+&#xD;&#xA;&quot;&lt;/div&gt;&quot;]" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,391" sap2010:WorkflowViewState.IdRef="SendMailX_2" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="[Config(&quot;Subject&quot;).ToString()]" To="[Split(currentText, &quot;,&quot;)(0)]" UseDocumentAsBody="False">
+                          <umab:SendMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromFile="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Gmail]" Body="[&quot;&lt;div style='background:#ffffff;border-radius:6px;padding:25px;border:1px solid #efefef;font-size:14px;margin-bottom:25px'&gt;&quot;+&#xA;dataString.Replace(&quot;__DEAR__&quot;, Split(currentText, &quot;,&quot;)(1))+&#xA;&quot;&lt;/div&gt;&quot;]" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,391" sap2010:WorkflowViewState.IdRef="SendMailX_2" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="[Config(&quot;Subject&quot;).ToString()]" To="[Split(currentText, &quot;,&quot;)(0)]" UseDocumentAsBody="False">
                             <umab:SendMailX.Files>
                               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                             </umab:SendMailX.Files>
@@ -265,7 +274,17 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[sheetData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="638,1238" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="' Get index of column 'Status Robot Email'&#xD;&#xA;Dim indexRobotStatusCol As Integer = -1&#xD;&#xA;For i As Integer = 0 To dt.Columns.Count - 1&#xD;&#xA;    ' Console.WriteLine(i &amp; &quot;, &quot; &amp; dt.Columns(i).ColumnName)&#xD;&#xA;    If dt.Columns(i).ColumnName = &quot;Status Robot Email&quot; Then&#xD;&#xA;        indexRobotStatusCol = i&#xD;&#xA;    End If&#xD;&#xA;Next&#xD;&#xA;&#xD;&#xA;If indexRobotStatusCol = -1 Then&#xD;&#xA;    Throw New Exception(&quot;Column 'Status Robot Email' not found in data.&quot;)&#xD;&#xA;Else&#xD;&#xA;    indexRobotStatusCol += 1&#xD;&#xA;End If&#xD;&#xA;&#xD;&#xA;'Console.WriteLine(&quot;Index kolom 'Status Robot Email': &quot; &amp; indexRobotStatusCol)&#xD;&#xA;&#xD;&#xA;' Convert to alphabetical column name&#xD;&#xA;'Dim RobotStatusCell As String = &quot;&quot;&#xD;&#xA;While indexRobotStatusCol &gt; 0&#xD;&#xA;    indexRobotStatusCol -= 1&#xD;&#xA;    RobotStatusCell = Chr(65 + (indexRobotStatusCol Mod 26)) &amp; RobotStatusCell&#xD;&#xA;    indexRobotStatusCol \= 26&#xD;&#xA;End While&#xD;&#xA;&#xD;&#xA;'Console.WriteLine(&quot;Kolom 'Status Robot Email' dalam huruf: &quot; &amp; RobotStatusCell)" DisplayName="Invoke Code to retrieve the RobotStatusCell" sap:VirtualizedContainerService.HintSize="586,197" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="dt">
+          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="sheetData" />
+        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="RobotStatusCell">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="RobotStatusCell" />
+        </OutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[sheetData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="586,1238" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -275,6 +294,7 @@
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If Condition="[CurrentRow(&quot;Status Robot Email&quot;).ToString = &quot;Progress&quot;]" sap:VirtualizedContainerService.HintSize="518,991" sap2010:WorkflowViewState.IdRef="If_3">
@@ -311,7 +331,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uga:WriteCellConnections BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" Spreadsheet="{x:Null}" AuthScopesInvalid="False" Cell="[&quot;AD&quot; + indxint.ToString]" DisplayName="Write Cell" HideCell="False" sap:VirtualizedContainerService.HintSize="382,266" sap2010:WorkflowViewState.IdRef="WriteCellConnections_4" ItemSelectionMode="UrlOrId" ManualEntrySpreadsheetId="[Config(&quot;Spreadsheet URL&quot;).ToString()]" RangeLocation="[Config(&quot;Sheet Name&quot;).ToString()]" UseConnectionService="False" WhatToWrite="[&quot;Done&quot;]">
+                          <uga:WriteCellConnections BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" Spreadsheet="{x:Null}" AuthScopesInvalid="False" Cell="[RobotStatusCell + indxint.ToString]" DisplayName="Write Cell" HideCell="False" sap:VirtualizedContainerService.HintSize="382,266" sap2010:WorkflowViewState.IdRef="WriteCellConnections_4" ItemSelectionMode="UrlOrId" ManualEntrySpreadsheetId="[Config(&quot;Spreadsheet URL&quot;).ToString()]" RangeLocation="[Config(&quot;Sheet Name&quot;).ToString()]" UseConnectionService="False" WhatToWrite="[&quot;Done&quot;]">
                             <uga:WriteCellConnections.FileIdBackup>
                               <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="UrlOrId">
                                 <usau:BackupSlot.BackupValues>
